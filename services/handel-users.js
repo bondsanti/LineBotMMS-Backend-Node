@@ -11,9 +11,9 @@ exports.handleFollow = async(event) => {
 
    //insert user to table
 
-   const isCheckUser = await userService.isUserExist(userId);
+   const isCheck = await userService.isUserExist(userId);
    
-   if(!isCheckUser){
+   if(!isCheck){
     //ถ้าไม่มี user ให้เพิ่ม user ใหม่
     await userService.createUser(
         profile.userId,
@@ -24,5 +24,18 @@ exports.handleFollow = async(event) => {
     //ถ้ามี user ให้อัพเดทข้อมูล user คนนั้นใหม่
     await userService.updateUser(profile.userId,profile.displayName,profile.pictureUrl,1);
    }
+
+}
+
+exports.handleUnFollow = async(event) =>{
+    const userId = event.source.userId;
+    console.log('มีคน block / เลิกเป็นเพื่อนแล้ว คือ : '+ userId);
+
+    const isCheck = await userService.isUserExist(userId);
+
+    if(isCheck){
+        //await userService.removeUserById(userId);
+        await userService.updateIsActiveUser(userId,0); //is_active =0 (block/unfollow)
+    }
 
 }

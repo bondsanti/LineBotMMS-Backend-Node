@@ -1,4 +1,4 @@
-const userService = require('./user/index');
+const userService = require('../user/index');
 
 
 exports.handleUnfollow = async(event) =>{

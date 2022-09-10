@@ -1,6 +1,6 @@
-const { handleFollow } = require("./handle-follow");
+const { handleFollow, handleUnFollow } = require("./handel-users");
 const { handleMessage } = require("./handle-message");
-const { handleUnfollow } = require("./handle-unfollow");
+
 
 // event handler
 exports.handleEvent =  (event) => {
@@ -35,7 +35,7 @@ exports.handleEvent =  (event) => {
       break;
     case "unfollow":
       //console.log('มีคน block / เลิกเป็นเพื่อนแล้ว');
-      handleUnfollow(event);
+      handleUnFollow(event);
       break;
     default:
       throw new Error("Unknown event " + JSON.stringify(event));
