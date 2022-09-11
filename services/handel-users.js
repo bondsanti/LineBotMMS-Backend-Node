@@ -1,5 +1,6 @@
 const { client } = require('../config/line');
 const userService = require('./user/index');
+const { sendWelcomeMsg } = require('./send-welcome-msg');
 
 exports.handleFollow = async(event) => {
     const userId = event.source.userId;
@@ -24,6 +25,10 @@ exports.handleFollow = async(event) => {
     //ถ้ามี user ให้อัพเดทข้อมูล user คนนั้นใหม่
     await userService.updateUser(profile.userId,profile.displayName,profile.pictureUrl,1);
    }
+
+   let msg;
+   msg = sendWelcomeMsg();
+   return client.replyMessage(event.replyToken, msg);
 
 }
 

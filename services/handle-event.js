@@ -1,3 +1,4 @@
+const { handleImage } = require("./handel-image");
 const { handleFollow, handleUnFollow } = require("./handel-users");
 const { handleMessage } = require("./handle-message");
 
@@ -12,10 +13,11 @@ exports.handleEvent =  (event) => {
            handleMessage(event);
           break;
         case "image":
-          console.log("image message");
+          // console.log("image message");
+          handleImage(event);
           break;
         case "location":
-          console.log("location message");
+         console.log("location"+ event);
           break;
         case "sticker":
           console.log("sticker message");
