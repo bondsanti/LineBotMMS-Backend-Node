@@ -1,5 +1,5 @@
 exports.takePhoto = () => {
-  let msg = [
+  let msg = 
     {
       type: "text",
       text: "ถ่ายภาพอุปกรณ์ที่ต้องการซ่อม",
@@ -32,7 +32,6 @@ exports.takePhoto = () => {
           },
         ],
       },
-    },
-  ];
+    };
   return msg;
 };

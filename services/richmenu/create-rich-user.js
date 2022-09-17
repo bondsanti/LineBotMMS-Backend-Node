@@ -33,8 +33,8 @@ exports.createRichMenuUser = async () => {
           height: 843,
         },
         action: {
-          type: "uri",
-          uri: "https://facebook.com",
+          type: "message",
+          text: "ติดตามงานซ่อมของฉัน",
         },
       },
       {
@@ -99,7 +99,7 @@ exports.createRichMenuUser = async () => {
   // 3. set default menu for all users
   await client.setDefaultRichMenu(richMenuUserId);
 
-  // 4. create alias to richmenu
-  await client.createRichMenuAlias(richMenuUserId, "richmenu-alias-user");
+  // 4. create alias to richmenu *ถ้าไม่อยากติดแคชให้สร้างชื่อใหม่
+  await client.createRichMenuAlias(richMenuUserId, "richmenu-alias-user-1");
 
 };

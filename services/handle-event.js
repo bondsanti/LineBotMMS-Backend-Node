@@ -1,4 +1,6 @@
 const { handleImage } = require("./handel-image");
+const { handleLoc } = require("./handel-location");
+const { handlePostback } = require("./handel-postback");
 const { handleFollow, handleUnFollow } = require("./handel-users");
 const { handleMessage } = require("./handle-message");
 
@@ -17,10 +19,8 @@ exports.handleEvent =  (event) => {
           handleImage(event);
           break;
         case "location":
-         console.log("location"+ event);
-          break;
-        case "sticker":
-          console.log("sticker message");
+         //console.log("location"+ event);
+         handleLoc(event);
           break;
         default:
           throw new Error(
@@ -29,7 +29,8 @@ exports.handleEvent =  (event) => {
       }
       break;
     case "postback":
-      console.log("postback");
+      //console.log("postback");
+      handlePostback(event);
       break;
     case "follow":
       //console.log('มีคนติดตาม / เลิก block คือ : ' + event.source.userId);

@@ -1,5 +1,5 @@
 exports.sendLocation = () => {
-  let msg = [
+  let msg = 
     {
       type: "text",
       text: "สถานที่ของคุณอยู่ที่ไหน?",
@@ -25,7 +25,6 @@ exports.sendLocation = () => {
           },
         ],
       },
-    },
-  ];
+    };
   return msg;
 };
