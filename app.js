@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);  // http://localhost:4000/
 
 //frontend http://localhost:4000/mms-frontend-react
-app.get('/*',function(req,res,next){
+app.get('/mms-frontend-react/*',function(req,res,next){
     res.sendFile(path.join(__dirname,'mms-frontend-react','index.html'));
 });
 

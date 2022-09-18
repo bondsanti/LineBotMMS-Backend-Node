@@ -70,7 +70,7 @@ exports.createRichMenuUser = async () => {
         },
         action: {
           type: "uri",
-          uri: "https://hotmail.com",
+          uri: process.env.LIFF_URL,
         },
       },
       {
@@ -100,6 +100,6 @@ exports.createRichMenuUser = async () => {
   await client.setDefaultRichMenu(richMenuUserId);
 
   // 4. create alias to richmenu *ถ้าไม่อยากติดแคชให้สร้างชื่อใหม่
-  await client.createRichMenuAlias(richMenuUserId, "richmenu-alias-user-1");
+  await client.createRichMenuAlias(richMenuUserId, "richmenu-alias-user-3");
 
 };
